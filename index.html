@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jingwen Zhang, Backend and Platform Engineer</title>
+<style>
+  :root {
+    --ink: #1f2430;
+    --muted: #5b6472;
+    --faint: #8a93a3;
+    --line: #e4e7ec;
+    --accent: #2f5aa6;
+    --bg: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 16.5px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px 96px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  header { padding: 72px 0 8px; }
+  .identity { color: var(--muted); font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 14px; }
+  h1 { font-size: 40px; line-height: 1.15; margin: 0 0 18px; font-weight: 700; }
+  .hook { font-size: 18px; color: #333a47; margin: 0; max-width: 640px; }
+  nav { margin-top: 28px; font-size: 15px; }
+  nav a { margin-right: 20px; color: var(--muted); }
+  nav a:hover { color: var(--accent); }
+
+  section { margin-top: 56px; }
+  h2 {
+    font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); font-weight: 600;
+    border-bottom: 1px solid var(--line); padding-bottom: 8px; margin: 0 0 22px;
+  }
+  h3 { font-size: 18px; margin: 0 0 2px; font-weight: 650; }
+  .meta { color: var(--faint); font-size: 14.5px; margin: 0 0 10px; }
+  p { margin: 0 0 14px; }
+  .job, .project, .school { margin-bottom: 34px; }
+  .job:last-child, .project:last-child, .school:last-child { margin-bottom: 0; }
+  ul { margin: 8px 0 0; padding-left: 20px; }
+  li { margin-bottom: 6px; }
+  .tag {
+    display: inline-block; font-size: 12.5px; color: var(--muted);
+    border: 1px solid var(--line); border-radius: 999px; padding: 1px 10px; margin-left: 8px; vertical-align: 2px;
+  }
+  .skills-group { margin-bottom: 18px; }
+  .skills-group:last-child { margin-bottom: 0; }
+  .skills-group .label { font-weight: 650; }
+  .contact-line { margin-bottom: 8px; }
+  footer { margin-top: 72px; color: var(--faint); font-size: 14px; border-top: 1px solid var(--line); padding-top: 16px; }
+
+  @media (max-width: 600px) {
+    header { padding-top: 48px; }
+    h1 { font-size: 32px; }
+    .hook { font-size: 16.5px; }
+    body { font-size: 16px; }
+    nav a { margin-right: 14px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <p class="identity">Backend and Platform Engineer · Former Technical Lead</p>
+    <h1>Jingwen Zhang</h1>
+    <p class="hook">I build systems end to end, from embedded firmware and IoT devices through cloud services, and now LLM serving. I like work where I can follow a problem across the whole chain and see it run.</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>I am a backend and platform engineer with more than three years of production experience. At iLumens LLC in Salt Lake City, I grew from software engineer to technical lead of an eight person team, building an IoT telemetry platform that runs from device firmware all the way to cloud services on GCP and Kubernetes.</p>
+    <p>My current focus is AI infrastructure and ML systems, especially LLM serving and scheduling, which I explore hands on in my own projects.</p>
+    <p>I am finishing my M.S. in Data Science at UC San Diego and looking for full time Backend, Platform, and AI Infrastructure roles starting January 2027.</p>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <div class="job">
+      <h3>Technical Lead</h3>
+      <p class="meta">iLumens LLC · Salt Lake City, UT · May 2024 to Jun 2025</p>
+      <ul>
+        <li>Led an 8-engineer team building and operating an IoT telemetry platform spanning device firmware, data pipelines, and cloud services.</li>
+        <li>Led integration and modernization of GOAT, a U.S. Department of Energy funded real time training system for power grid operators, coordinating work across the team and with the client.</li>
+        <li>Set technical direction for the platform, reviewed designs, and mentored engineers, including interns.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <h3>Software Engineer</h3>
+      <p class="meta">iLumens LLC · Salt Lake City, UT · Dec 2022 to May 2024</p>
+      <ul>
+        <li>Built backend services and device to cloud data paths for the IoT telemetry platform in Python, Go, C#, and TypeScript, running on GCP, GKE, and Kubernetes.</li>
+        <li>Wrote and debugged production C firmware for connected devices, and traced faults across the firmware, network, and cloud boundary until the full path worked.</li>
+        <li>Led a performance effort on a core user facing workflow that substantially improved its speed, covering both the frontend and the services behind it.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <div class="project">
+      <h3>MiniServe</h3>
+      <p class="meta">Personal project · <a href="https://github.com/jingwenzz/miniserve">github.com/jingwenzz/miniserve</a></p>
+      <p>A minimal LLM inference serving simulator written in Python. It implements a request scheduler with continuous batching on top of a deterministic simulation core, so scheduling behavior can be reproduced exactly and compared across policies. The project also includes hands on vLLM benchmarking to ground the simulation in real serving behavior.</p>
+    </div>
+
+    <div class="project">
+      <h3>Device Rollout Platform<span class="tag">In progress</span></h3>
+      <p>A device configuration and staged rollout platform, drawn from the operational problems of shipping firmware and configuration to a fleet safely. Design and a device simulator are in place; the platform backend is under construction.</p>
+    </div>
+
+    <div class="project">
+      <h3>Fleet Operations Assistant<span class="tag">In progress</span></h3>
+      <p>An operations assistant that combines retrieval based question answering, with citations and the ability to decline when evidence is thin, with tool using agents that check device and release status. Currently in design and early build.</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-group">
+      <p><span class="label">Languages:</span> Python, Go, C#, TypeScript, SQL, C, Java</p>
+    </div>
+    <div class="skills-group">
+      <p><span class="label">Backend and Cloud:</span> REST APIs, PostgreSQL, GCP, GKE, Kubernetes, Docker, CI/CD with GitHub Actions</p>
+    </div>
+    <div class="skills-group">
+      <p><span class="label">Systems:</span> IoT and edge to cloud pipelines, real time telemetry, embedded firmware (ESP32, nRF)</p>
+    </div>
+    <div class="skills-group">
+      <p><span class="label">ML Systems:</span> LLM serving and scheduling, vLLM, Triton kernels</p>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="school">
+      <h3>UC San Diego</h3>
+      <p class="meta">M.S. in Data Science · 2025 to 2026</p>
+    </div>
+    <div class="school">
+      <h3>University of Utah</h3>
+      <p class="meta">B.S. in Computer Science · 2019 to 2022 · GPA 3.77</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p class="contact-line">GitHub: <a href="https://github.com/jingwenzz">github.com/jingwenzz</a></p>
+    <p class="contact-line">LinkedIn: <a href="https://www.linkedin.com/in/zhang-jingwen">linkedin.com/in/zhang-jingwen</a></p>
+    <p class="contact-line">Email: <a href="mailto:zhangjingwen0109@gmail.com">zhangjingwen0109@gmail.com</a></p>
+    <p>Based in San Diego, CA, and open to relocation. I am looking for full time Backend, Platform, and AI Infrastructure roles starting January 2027.</p>
+  </section>
+
+  <footer>
+    <p>Jingwen Zhang · San Diego, CA</p>
+  </footer>
+
+</div>
+</body>
+</html>
