@@ -431,11 +431,11 @@
           <span class="tag green">Production</span>
         </div>
         <p class="meta">iLumens LLC · 2022 to 2025 · Engineer, then Technical Lead</p>
-        <p>Two and a half years building and rescuing a production IoT platform: a fleet migration from Astarte to ThingsBoard that kept the BLE device layer intact, a PostgreSQL connection leak traced through the threading model and eliminated, and a failed production GKE environment rebuilt service by service, plus integration leadership on GOAT, a <strong>U.S. Department of Energy funded</strong> training system for power grid operators.</p>
+        <p>Two and a half years working across a production IoT platform, from embedded devices and data paths to cloud services and operator dashboards. I joined as a software engineer and later became technical lead for the team.</p>
         <div class="pills">
-          <span class="pill">Python</span><span class="pill">Django</span><span class="pill">GCP / GKE</span><span class="pill">PostgreSQL</span><span class="pill">ESP32 and Nordic firmware</span><span class="pill">ThingsBoard</span>
+          <span class="pill">Python</span><span class="pill">Django</span><span class="pill">GCP / GKE</span><span class="pill">PostgreSQL</span><span class="pill">Embedded firmware</span>
         </div>
-        <a class="case-link" href="#/ilumens">Read the iLumens case study →</a>
+        <a class="case-link" href="#/ilumens">Read the iLumens overview →</a>
       </div>
 
       <div class="card flagship">
@@ -444,11 +444,11 @@
           <span class="tag green">Production</span>
         </div>
         <p class="meta">iLumens LLC · <strong>U.S. Department of Energy funded</strong> · Integration and Technical Lead</p>
-        <p>A real time training system built around the PowerSim family of simulators, 3KeyMaster and WSC. I led its integration and modernization: replacing dummy data with live simulator output, reviving an unmaintained Windows stack, stabilizing the data path into scoring and coaching, and coordinating simulator vendors toward milestone demos.</p>
+        <p>A real time training system for power grid operators. I led integration and modernization work, translating domain requirements into engineering plans and coordinating the team toward delivery milestones.</p>
         <div class="pills">
-          <span class="pill">C#</span><span class="pill">WPF</span><span class="pill">PowerSim</span><span class="pill">3KeyMaster</span><span class="pill">WSC simulators</span><span class="pill">Integration leadership</span>
+          <span class="pill">C#</span><span class="pill">WPF</span><span class="pill">Integration leadership</span><span class="pill">Technical planning</span>
         </div>
-        <a class="case-link" href="#/ilumens/goat">Read the GOAT deep dive →</a>
+        <a class="case-link" href="#/ilumens/goat">Read the GOAT overview →</a>
       </div>
 
       <div class="mini-row">
@@ -483,9 +483,8 @@
           <p class="meta">iLumens LLC · Salt Lake City, UT · May 2024 to Jun 2025</p>
           <ul>
             <li>Led an 8 engineer team building and operating an IoT telemetry platform spanning device firmware, data pipelines, and cloud services.</li>
-            <li>Led the production migration from Astarte to ThingsBoard, redesigning device synchronization, telemetry schemas, backend APIs, and frontend data adapters, while preserving the stable BLE device layer so the existing fleet kept working.</li>
-            <li>Rebuilt a failed production GKE environment after usable infrastructure backups turned out to be incomplete, restoring workloads, namespaces, secrets, database connectivity, Keycloak authentication, ingress, and TLS.</li>
-            <li>Led integration and modernization of GOAT, a <strong>U.S. Department of Energy funded</strong> real time training system for power grid operators, translating domain requirements into engineering tasks and coordinating developers and simulator vendors toward milestone demos.</li>
+            <li>Led platform modernization and reliability work across device data paths, backend services, cloud infrastructure, and frontend workflows.</li>
+            <li>Led integration and modernization of GOAT, a <strong>U.S. Department of Energy funded</strong> real time training system for power grid operators, translating domain requirements into engineering tasks and coordinating delivery across the team.</li>
             <li>Set technical direction for the platform, reviewed designs and code across backend, frontend, and firmware, and mentored engineers, including interns.</li>
           </ul>
         </div>
@@ -493,14 +492,14 @@
           <h3>Software Engineer</h3>
           <p class="meta">iLumens LLC · Salt Lake City, UT · Dec 2022 to May 2024</p>
           <ul>
-            <li>Diagnosed a production PostgreSQL connection leak that accumulated about 99 database connections with only about 2 active, traced it to threaded Django data sync work that did not release connection lifecycles correctly, and eliminated it by redesigning the concurrency around multiprocessing and a process pool, validated in local, test, and production.</li>
+            <li>Diagnosed and resolved production backend reliability issues, including problems that only appeared under real operating conditions.</li>
             <li>Built backend services and device to cloud data paths for the IoT telemetry platform in Python, Go, C#, and TypeScript, running on GCP, GKE, and Kubernetes.</li>
-            <li>Wrote and debugged production C firmware for connected devices, including Nordic BLE advertising and reconnection state machines in weak signal conditions, and traced faults across the firmware, network, and cloud boundary until the full path worked.</li>
-            <li>Cut Smart Room widget load time roughly in half by replacing historical telemetry queries returning 1000+ points with dedicated latest value queries and parallel widget initialization.</li>
+            <li>Wrote and debugged production C firmware for connected devices, and traced faults across the firmware, network, and cloud boundary until the full path worked.</li>
+            <li>Improved dashboard performance by optimizing how current device data was loaded and displayed.</li>
           </ul>
         </div>
       </div>
-      <p><a href="#/ilumens">The full stories, with architecture and root causes, are in the iLumens case study →</a></p>
+      <p><a href="#/ilumens">A high level overview of this work is in the iLumens overview →</a></p>
     </section>
 
     <section class="reveal" id="skills">
@@ -578,9 +577,9 @@
   </nav>
 
   <div class="case-head">
-    <p class="case-kicker">Case study · Production platform</p>
-    <h1>iLumens: building and rescuing a device to cloud platform</h1>
-    <p class="case-sub">An IoT telemetry platform that runs from sensor firmware in the ceiling to dashboards in the browser. I joined as a software engineer, left as technical lead, and along the way migrated its cloud platform, killed a database connection leak, and rebuilt its production Kubernetes environment after a failure.</p>
+    <p class="case-kicker">Experience overview · Production platform</p>
+    <h1>iLumens: an end to end IoT platform</h1>
+    <p class="case-sub">I worked across embedded firmware, backend services, cloud infrastructure, and web dashboards for a connected device platform, first as a software engineer and later as technical lead.</p>
     <div class="snapshot">
       <div class="item">
         <p class="k">Company</p>
@@ -592,15 +591,11 @@
       </div>
       <div class="item">
         <p class="k">Team</p>
-        <p class="v">Grew into leading an 8 engineer team across firmware, backend, frontend, and cloud</p>
+        <p class="v">Grew into leading an 8 engineer team</p>
       </div>
       <div class="item wide">
-        <p class="k">Stack</p>
-        <p class="v">Python, Go, C#, TypeScript · Django · GCP, GKE, Kubernetes · PostgreSQL and Cloud SQL · Keycloak · Astarte, then ThingsBoard · ESP32 and Nordic nRF firmware · React</p>
-      </div>
-      <div class="item">
         <p class="k">Scope</p>
-        <p class="v">Firmware, backend, cloud infrastructure, and frontend, owned as one chain</p>
+        <p class="v">Firmware, backend, cloud infrastructure, and frontend, owned as one connected system</p>
       </div>
     </div>
   </div>
@@ -608,113 +603,63 @@
   <div class="wrap">
 
     <section class="reveal">
-      <h2>The platform</h2>
-      <p>Sensors and controllers in commercial buildings report occupancy, environmental, and device data. That data has to travel from constrained embedded hardware, over BLE and gateway hardware, into cloud services, and out to the Smart Room dashboards that facility teams actually use. Every layer in that chain was part of my job at some point.</p>
-      <div class="chain" role="img" aria-label="Architecture chain: connected devices and firmware, then BLE and gateway path, then ingestion and telemetry services, then Django services and PostgreSQL, then Smart Room dashboard and operator workflows">
-        <div class="node"><span class="t">Devices and firmware</span><span class="d">Motion and environmental sensors, ESP32 and Nordic nRF, C firmware</span></div>
+      <h2>Overview</h2>
+      <p>At iLumens, I worked on a platform that carried information from connected devices through cloud services to web based operator tools. My work followed problems across that whole path instead of stopping at a single layer.</p>
+      <div class="chain" role="img" aria-label="High level system chain: connected devices, connectivity path, cloud services, and operator dashboard">
+        <div class="node"><span class="t">Connected devices</span><span class="d">Embedded software and device data</span></div>
         <div class="arrow" aria-hidden="true">→</div>
-        <div class="node"><span class="t">BLE and gateway</span><span class="d">BLE links to wall controllers and ESP32 gateways</span></div>
+        <div class="node"><span class="t">Connectivity path</span><span class="d">Gateways and data transfer</span></div>
         <div class="arrow" aria-hidden="true">→</div>
-        <div class="node"><span class="t">Ingestion and telemetry</span><span class="d">Astarte, later ThingsBoard: device model, telemetry, provisioning</span></div>
+        <div class="node"><span class="t">Cloud services</span><span class="d">Ingestion, APIs, and storage</span></div>
         <div class="arrow" aria-hidden="true">→</div>
-        <div class="node"><span class="t">Django and PostgreSQL</span><span class="d">APIs, synchronization, access control, Cloud SQL</span></div>
-        <div class="arrow" aria-hidden="true">→</div>
-        <div class="node"><span class="t">Smart Room dashboard</span><span class="d">React dashboards, widgets, and operator workflows</span></div>
+        <div class="node"><span class="t">Operator dashboard</span><span class="d">Web workflows and current status</span></div>
       </div>
-      <p class="chain-caption">The same chain, five times over: most of the hard problems below happened at the seams between these boxes, not inside any one of them.</p>
+      <p class="chain-caption">The breadth of that path shaped the rest of my work there: design, implementation, troubleshooting, and eventually technical leadership.</p>
     </section>
 
     <section class="reveal">
-      <h2>My role</h2>
-      <p>I started in December 2022 as a software engineer writing backend services and debugging device firmware. The work kept widening: first the data path between devices and cloud, then production incidents on GCP, then design and review responsibility, and in May 2024 I became technical lead of the eight person team.</p>
-      <p>The through line is that I owned problems across firmware, backend, cloud, and frontend rather than one layer. When a sensor reading was wrong on a dashboard, the fault could sit in a BLE state machine, a gateway packet, a sync job, a serializer, or a React widget, and my job was to follow it across those boundaries until the whole path worked. The five stories below are the ones that best show that.</p>
-    </section>
-
-    <section class="reveal">
-      <h2>Deep dives</h2>
+      <h2>Focus areas</h2>
 
       <div class="deepdive">
-        <p class="dd-tag">Deep dive 1 · Platform migration</p>
-        <h3>Migration without breaking the fleet</h3>
-        <p>The platform ran on Astarte, and we moved production to ThingsBoard. The constraint that shaped everything: the installed device fleet and its BLE layer were stable and working, and a migration that broke them would have been a field problem, not a software problem.</p>
+        <p class="dd-tag">Platform engineering</p>
+        <h3>Backend, cloud, and device systems</h3>
         <ul>
-          <li><strong>Phased strategy.</strong> We evaluated several approaches and chose the one that preserved the stable BLE device layer while replacing only the ESP32 to cloud gateway path, which kept the blast radius small.</li>
-          <li><strong>Sync rewrite.</strong> I rewrote device synchronization around the ThingsBoard device model, removing Astarte specific interface and endpoint abstractions, with device discovery, connectivity refresh, and stale device cleanup.</li>
-          <li><strong>Normalization layer.</strong> I built telemetry normalization between ThingsBoard payloads and the application models, so frontend components were decoupled from platform specific response formats instead of breaking with each payload change.</li>
-          <li><strong>User data protection.</strong> Automated sync had been able to overwrite user managed aliases and metadata. I replaced broad upserts with conditional update logic so synchronization updates device state without clobbering what operators had named and configured.</li>
-          <li><strong>Ingestion resilience.</strong> I added retries with exponential backoff (1s, 2s, 4s, 8s, 16s, up to 5 attempts) and structured failure logging for transient telemetry ingestion errors, and verified with simulated intermittent network failures that payloads were recovered instead of dropped.</li>
+          <li>Built and debugged backend services and device to cloud data paths.</li>
+          <li>Contributed to platform modernization, reliability, and performance improvements.</li>
+          <li>Worked across firmware, services, cloud infrastructure, and frontend code as one system.</li>
         </ul>
-        <p>We also stress tested the migrated pipeline with malformed payloads, delayed responses, and interrupted transmissions, adding backend validation and frontend fallback states so partial or stale data did not reach users as if it were live.</p>
-      </div>
-
-      <div class="deepdive">
-        <p class="dd-tag">Deep dive 2 · Backend debugging</p>
-        <h3>The PostgreSQL connection leak</h3>
-        <div class="stat-row">
-          <div class="stat"><span class="n">~99</span><span class="l">database connections open in production</span></div>
-          <div class="stat"><span class="n">~2</span><span class="l">of them actually active</span></div>
-          <div class="stat"><span class="n">0</span><span class="l">persistent idle connections after the fix</span></div>
-        </div>
-        <p>Production PostgreSQL was accumulating connections: about 99 open, with only about 2 active and the rest idle. The problem did not reproduce locally, which made it a production only investigation across cloud logs, PostgreSQL activity views, and the backend code.</p>
-        <p>The root cause sat in the data synchronization workers. The sync code made heavy use of Python threads doing Django ORM work, and when those threads finished, their database connection lifecycles were not released correctly, so idle connections accumulated until they became the problem.</p>
-        <p>The fix was an architecture change, not a settings tweak: I redesigned the synchronization concurrency around multiprocessing and a process pool, so connection ownership followed process boundaries that actually close. I validated the change in local, then test, then production. In production, the leak was gone.</p>
-      </div>
-
-      <div class="deepdive">
-        <p class="dd-tag">Deep dive 3 · Platform recovery</p>
-        <h3>Rebuilding production on GKE</h3>
-        <p>In December 2024 the Astarte deployment began going offline at random. I worked through the cluster methodically: GKE CPU, memory, and storage, pod and node networking, DNS, ingress, liveness and readiness probes, autoscaling events, load balancer health checks, and GCP status. The infrastructure looked healthy while the platform kept degrading, until pods failed, operator and custom resource state fell out of sync, and the cluster went down.</p>
-        <p>The recovery turned out to be the real project. The backups were incomplete: there was no full usable snapshot to restore from. So in January 2025 I rebuilt the production environment by hand, across roughly 7 namespaces and 30 pods:</p>
-        <ul>
-          <li>GKE cluster, namespaces, and workload deployments for the Django backend, Astarte, and Scylla.</li>
-          <li>Secrets reconstructed one by one, including the Astarte realm private key, database credentials, the Django secret, Keycloak settings, and GCP service account credentials, then rebound to service accounts.</li>
-          <li>Keycloak authentication rebuilt: realm, OAuth redirects, roles and groups, userinfo mappings, CORS and Web Origins, and session flows.</li>
-          <li>Ingress and TLS recovered by debugging cert manager HTTP-01 challenges, solver pods, DNS records, ClusterIssuers, and TLS secrets.</li>
-          <li>Node pools resized when the rebuilt workloads would not schedule within the existing CPU and memory.</li>
-        </ul>
-        <p>One nested problem is worth naming on its own: the test backend could not reach its database because the GKE cluster and Cloud SQL sat in different VPCs. I evaluated VPC peering, found a subnet CIDR conflict, compared peering, Shared VPC, and a cluster rebuild, and chose the network restructuring that actually resolved it.</p>
-        <p>After the rebuild, I also migrated workloads to a smaller node pool, cordoning and draining the old nodes and retiring the pool, to bring the cluster cost back in line with what the workloads actually used.</p>
       </div>
 
       <div class="deepdive" id="goat">
-        <p class="dd-tag">Deep dive 4 · GOAT · Integration leadership</p>
-        <h3>GOAT: integrating a real time training system</h3>
-        <p>GOAT is a <strong>U.S. Department of Energy funded</strong> real time training system for power grid operators, built around the PowerSim family of simulators (3KeyMaster and WSC). To be explicit about the boundary: my part was integration, modernization, and technical leadership of the team building it, not sole authorship of the whole system.</p>
-        <div class="textchain" aria-label="GOAT data chain">PowerSim and WSC via 3KeyMaster <span class="arr">→</span> simulator state, actions, and recorded events <span class="arr">→</span> scoring and coaching <span class="arr">→</span> WPF application and database</div>
+        <p class="dd-tag">GOAT · Integration leadership</p>
+        <h3>GOAT: real time training for power grid operators</h3>
+        <p>GOAT is a <strong>U.S. Department of Energy funded</strong> real time training system for power grid operators. My role focused on integration, modernization, technical planning, and team coordination.</p>
         <ul>
-          <li><strong>Real data, not dummy data.</strong> From early 2023, my brief was to replace the placeholder data inside the scoring system with real simulator output: activity logs, simulation state, and recorded actions.</li>
-          <li><strong>Legacy takeover.</strong> The codebase had gone unmaintained and was barely documented. I got the full Windows stack building and running again: the WPF application, its database, 3KeyMaster, and the custom bridge DLLs connecting them, including fixing DLL errors and rebuilding the database when the original would not come up.</li>
-          <li><strong>Data pipeline.</strong> I reviewed and stabilized the simulator data retrieval path: callback handling, queued event processing in C#, state and action synchronization, and database persistence feeding the scoring system.</li>
-          <li><strong>Requirements to backlog.</strong> I translated the domain experts' requirements for scoring, coaching, and communication modules into GitHub project boards, epics, issues, and programmer assignments, and ran the review loop over the team's code.</li>
-          <li><strong>Compatibility and demos.</strong> I validated GOAT against newly released WSC versions before milestone demos, coordinated the external simulator teams, and helped define the follow on architecture: GOAT stays a Windows application, with a separate web based CMS for instructor scenario authoring.</li>
+          <li>Translated domain requirements into engineering tasks and reviewed the team's work.</li>
+          <li>Coordinated delivery across the team toward project milestones.</li>
         </ul>
       </div>
 
       <div class="deepdive">
-        <p class="dd-tag">Deep dive 5 · Performance</p>
-        <h3>Smart Room performance, at the widget level</h3>
-        <div class="stat-row">
-          <div class="stat"><span class="n">1000+</span><span class="l">historical points fetched to show one current value</span></div>
-          <div class="stat"><span class="n">~2x</span><span class="l">faster widget loading after the fix</span></div>
-          <div class="stat"><span class="n">~5s</span><span class="l">for pilot Smart Room widgets to load</span></div>
-        </div>
-        <p>The Smart Room dashboard felt slow, and the cause was a data shape problem, not rendering. Each widget only needed the latest value for its sensor, but widgets were reusing the plot's historical data fetch, pulling 1000+ points to display a single current number.</p>
-        <p>I wrote a dedicated latest value fetch for widgets, then fixed a second bug underneath it: the API was returning the first point in the requested time range instead of the newest one, so I rewrote the request parameters and added timestamp validity checks. Finally I changed widget initialization from sequential to parallel, with each widget updating as soon as its own status was ready. Widget load time fell by roughly half, and pilot Smart Room widgets loaded in about five seconds.</p>
+        <p class="dd-tag">Technical leadership</p>
+        <h3>Leading across the stack</h3>
+        <ul>
+          <li>Set technical direction for work spanning firmware, backend, frontend, and cloud.</li>
+          <li>Reviewed designs and code, coordinated delivery, and mentored engineers, including interns.</li>
+        </ul>
       </div>
     </section>
 
     <section class="reveal">
       <h2>Outcomes</h2>
       <div class="outcomes">
-        <div class="o">Production migrated from Astarte to ThingsBoard with the BLE fleet layer untouched</div>
-        <div class="o">PostgreSQL connection leak found, root caused, and eliminated in production</div>
-        <div class="o">Failed production GKE environment rebuilt by hand and returned to service</div>
-        <div class="o">GOAT integration led from dummy data to live simulator driven scoring and demos</div>
-        <div class="o">Smart Room widget loading cut roughly in half</div>
-        <div class="o">Promoted to technical lead of an 8 engineer team</div>
+        <div class="o">Progressed from software engineer to technical lead of an 8 engineer team</div>
+        <div class="o">Delivered engineering work across the device to cloud path</div>
+        <div class="o">Contributed to platform modernization, reliability, and performance</div>
+        <div class="o">Led integration and modernization work on GOAT</div>
       </div>
       <div class="honesty">
-        <strong>A note on scope.</strong> This page describes production work at architecture level. Employer confidential internals, customer details, credentials, and internal data are intentionally omitted, and the numbers given are the ones I can stand behind: connection counts observed in production, the retry schedule as implemented, and load times as measured at the time.
+        <strong>A note on scope.</strong> Details are intentionally kept at a high level because this was production work for a former employer. This overview covers responsibilities and scope, not internal systems, customer information, or operational specifics.
       </div>
       <div class="backlinks">
         <a class="btn" href="#/">← Back home</a>
