@@ -4,23 +4,71 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jingwen Zhang, Backend and Platform Engineer</title>
+<meta name="description" content="Jingwen Zhang is a backend and platform engineer and former technical lead. She builds systems end to end: embedded firmware, IoT devices, cloud services, and now LLM serving. Case studies: the iLumens device to cloud platform and MiniServe, a small LLM serving runtime.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jingwen Zhang, Backend and Platform Engineer">
+<meta property="og:description" content="Backend and platform engineer, former technical lead. Embedded firmware, IoT devices, cloud services, and now LLM serving.">
+<meta property="og:image" content="https://jingwenzz.github.io/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Jingwen Zhang, Backend and Platform Engineer">
+<meta name="twitter:description" content="Backend and platform engineer, former technical lead. Embedded firmware, IoT devices, cloud services, and now LLM serving.">
+<meta name="twitter:image" content="https://jingwenzz.github.io/og-card.png">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
+    color-scheme: light;
     --ink: #1c2230;
     --muted: #5b6472;
     --faint: #8a93a3;
     --line: #e7e2d8;
     --accent: #2e7d52;
-    --accent-bright: #7aa5e8;
+    --accent-deep: #173d2c;
+    --accent-ink: #1d4433;
     --paper: #fbfaf7;
     --card: #ffffff;
-    --hero: #173d2c;
+    --soft: #eef6f0;
+    --soft-line: #cfe5d6;
+    --pill-bg: #e9f3ec;
+    --pill-line: #d3e6d8;
+    --pill-ink: #2c5540;
     --amber-bg: #fdf3e0;
     --amber-ink: #92600d;
     --green: #43c172;
+    --banner-bg: #173d2c;
+    --banner-ink: #eaf4ee;
+    --code-bg: #f3f1ea;
+    --diagram-bg: #f7f5ef;
+    --shadow: rgba(28, 34, 48, 0.09);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --ink: #e8e6df;
+      --muted: #a9b0bc;
+      --faint: #7e8794;
+      --line: #33352f;
+      --accent: #6fc493;
+      --accent-deep: #9fd4b4;
+      --accent-ink: #bfe6cf;
+      --paper: #17181a;
+      --card: #202124;
+      --soft: #1d2b23;
+      --soft-line: #33503f;
+      --pill-bg: #1d2b23;
+      --pill-line: #33503f;
+      --pill-ink: #a9d8bc;
+      --amber-bg: #3a2f18;
+      --amber-ink: #e8c37a;
+      --banner-bg: #0f2a1e;
+      --banner-ink: #d9eee1;
+      --code-bg: #26271f;
+      --diagram-bg: #1e1f22;
+      --shadow: rgba(0, 0, 0, 0.4);
+    }
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -35,34 +83,83 @@
   }
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
+  button, a.btn, nav a, .viewnav a { min-height: 36px; }
+
+  /* ---------- Preview banner ---------- */
+  .preview-banner {
+    background: var(--banner-bg); color: var(--banner-ink);
+    font-size: 14px; line-height: 1.5;
+  }
+  .preview-banner .inner {
+    max-width: 820px; margin: 0 auto; padding: 10px 24px;
+    display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap;
+  }
+  .preview-banner strong { font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; font-size: 12.5px; }
+  .preview-banner span { opacity: 0.92; }
+
+  /* ---------- View switching ---------- */
+  .view { display: none; }
+  .view.active { display: block; }
+
+  /* ---------- Top navigation between views ---------- */
+  .viewnav {
+    max-width: 820px; margin: 0 auto; padding: 18px 24px 0;
+    display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 15px;
+  }
+  .viewnav a { color: var(--muted); font-weight: 500; display: inline-flex; align-items: center; }
+  .viewnav a:hover { color: var(--accent); text-decoration: none; }
+  .viewnav a[aria-current="page"] { color: var(--accent-ink); font-weight: 700; border-bottom: 2px solid var(--accent); }
 
   /* ---------- Hero ---------- */
-  .hero {
-    background: transparent;
-    color: var(--ink);
-  }
-  .hero-inner { max-width: 820px; margin: 0 auto; padding: 40px 24px 0; }
+  .hero-inner { max-width: 820px; margin: 0 auto; padding: 30px 24px 0; }
   .hero-flex { display: flex; gap: 26px; align-items: center; }
-  .identity { color: #4a6b58; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 14px; font-weight: 600; }
-  h1 { font-family: "Fraunces", Georgia, serif; font-size: 42px; line-height: 1.08; margin: 0 0 18px; font-weight: 650; letter-spacing: 0.01em; }
-  .hook { font-size: 17.5px; color: #3c4a41; margin: 0; max-width: 600px; line-height: 1.6; }
+  .identity { color: var(--accent); font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 14px; font-weight: 600; }
+  h1 { font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 42px; line-height: 1.12; margin: 0 0 18px; font-weight: 700; letter-spacing: -0.02em; }
+  .hook { font-size: 17.5px; color: var(--ink); opacity: 0.88; margin: 0; max-width: 600px; line-height: 1.6; }
   .badge {
     display: inline-flex; align-items: center; gap: 9px; margin-top: 20px;
-    background: #eef6f0; border: 1px solid #cfe5d6;
-    border-radius: 999px; padding: 6px 15px 6px 12px; font-size: 13.5px; color: #1d4433;
+    background: var(--soft); border: 1px solid var(--soft-line);
+    border-radius: 999px; padding: 6px 15px 6px 12px; font-size: 13.5px; color: var(--accent-ink);
   }
   .badge .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 0 rgba(67,193,114,0.55); animation: pulse 2.2s infinite; flex: none; }
   @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(67,193,114,0.55); } 70% { box-shadow: 0 0 0 8px rgba(67,193,114,0); } 100% { box-shadow: 0 0 0 0 rgba(67,193,114,0); } }
+  @media (prefers-reduced-motion: reduce) {
+    .badge .dot { animation: none; }
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .card { transition: none; }
+  }
   .socials { margin: 14px 0 0; font-size: 14.5px; }
-  .socials a { color: #1d6f4a; font-weight: 600; text-decoration: none; }
-  .socials a:hover { text-decoration: underline; }
-  .socials .sep { color: #9db8a8; margin: 0 8px; }
+  .socials a { color: var(--accent); font-weight: 600; }
+  .socials .sep { color: var(--faint); margin: 0 8px; }
+  .cta-row { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn {
+    display: inline-flex; align-items: center; padding: 8px 18px;
+    border-radius: 999px; font-size: 14.5px; font-weight: 600;
+    border: 1px solid var(--soft-line); color: var(--accent-ink); background: var(--card);
+  }
+  .btn:hover { text-decoration: none; border-color: var(--accent); }
+  .btn.primary { background: var(--accent-deep); border-color: var(--accent-deep); color: #f2f8f4; }
+  @media (prefers-color-scheme: dark) { .btn.primary { color: #10231a; background: var(--accent); border-color: var(--accent); } }
+  .btn.primary:hover { opacity: 0.92; }
   .avatar-wrap { margin: 0; flex: none; width: 92px; text-align: center; }
-  .avatar { width: 92px; height: 92px; border-radius: 50%; object-fit: cover; display: block; border: 3px solid #cfe5d6; box-shadow: 0 6px 18px rgba(23,61,44,0.14); }
-  .avatar-caption { font-size: 11.5px; color: #5a7263; margin-top: 7px; line-height: 1.35; }
-  nav { margin-top: 26px; padding: 14px 0 16px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 15px; display: flex; flex-wrap: wrap; gap: 6px 26px; }
-  nav a { color: var(--muted); font-weight: 500; }
-  nav a:hover { color: var(--accent); text-decoration: none; }
+  .avatar { width: 92px; height: 92px; border-radius: 50%; object-fit: cover; display: block; border: 3px solid var(--soft-line); box-shadow: 0 6px 18px rgba(23,61,44,0.14); }
+  .avatar-caption { font-size: 11.5px; color: var(--muted); margin-top: 7px; line-height: 1.35; }
+  .sectionnav { max-width: 820px; margin: 26px auto 0; padding: 14px 24px 16px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 15px; display: flex; flex-wrap: wrap; gap: 6px 26px; }
+  .sectionnav a { color: var(--muted); font-weight: 500; display: inline-flex; align-items: center; }
+  .sectionnav a:hover { color: var(--accent); text-decoration: none; }
+
+  /* ---------- Proof strip ---------- */
+  .proof {
+    max-width: 820px; margin: 30px auto 0; padding: 0 24px;
+  }
+  .proof-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+  }
+  .proof-item {
+    background: var(--soft); border: 1px solid var(--soft-line); border-radius: 12px;
+    padding: 14px 16px; font-size: 14.5px; font-weight: 600; color: var(--accent-ink); line-height: 1.45;
+  }
 
   /* ---------- Body ---------- */
   .wrap { max-width: 820px; margin: 0 auto; padding: 8px 24px 0; }
@@ -74,14 +171,15 @@
   }
   h2::before { content: ""; width: 22px; height: 3px; border-radius: 2px; background: var(--accent); flex: none; }
   h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
-  h3 { font-family: "Fraunces", Georgia, serif; font-size: 20px; margin: 0 0 2px; font-weight: 650; }
+  h3 { font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 20px; margin: 0 0 2px; font-weight: 700; letter-spacing: -0.01em; }
   .meta { color: var(--faint); font-size: 14.5px; margin: 0 0 10px; }
   p { margin: 0 0 14px; }
   .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.55s ease, transform 0.55s ease; }
   .reveal.in { opacity: 1; transform: none; }
+  .focus-line { font-weight: 600; color: var(--accent-ink); }
 
   /* ---------- Timeline ---------- */
-  .timeline { position: relative; margin-left: 7px; padding-left: 30px; border-left: 2px solid #e3ddcf; }
+  .timeline { position: relative; margin-left: 7px; padding-left: 30px; border-left: 2px solid var(--line); }
   .job { position: relative; margin-bottom: 38px; }
   .job:last-child { margin-bottom: 6px; }
   .job::before {
@@ -90,221 +188,759 @@
     background: var(--paper); border: 3.5px solid var(--accent);
   }
   .job ul { margin: 8px 0 0; padding-left: 20px; }
-  .job li { margin-bottom: 6px; }
+  .job li { margin-bottom: 8px; }
 
-  /* ---------- Project cards ---------- */
+  /* ---------- Cards ---------- */
   .card {
     background: var(--card); border: 1px solid var(--line); border-radius: 16px;
     padding: 24px 26px; margin-bottom: 20px;
     transition: transform 0.18s ease, box-shadow 0.18s ease;
   }
+  .card.flagship { border-color: var(--soft-line); box-shadow: 0 10px 28px var(--shadow); }
   .card:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(28, 34, 48, 0.09); }
   .card-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
-  .card-head h3 { margin: 0; }
+  .card-head h3 { margin: 0; font-size: 23px; }
   .gh-link { font-size: 14px; font-weight: 500; margin-left: auto; white-space: nowrap; }
   .tag {
     display: inline-block; font-size: 12px; font-weight: 600; color: var(--amber-ink);
     background: var(--amber-bg); border-radius: 999px; padding: 2px 11px; vertical-align: 2px;
   }
+  .tag.green { color: var(--accent-ink); background: var(--soft); }
   .card p { margin-bottom: 0; }
   .card .meta { margin: 2px 0 8px; }
+  .case-link { display: inline-flex; align-items: center; min-height: 36px; margin-top: 14px; font-weight: 600; font-size: 15px; }
   .pills { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
   .pill {
-    font-size: 13px; font-weight: 500; color: #2c5540;
-    background: #e9f3ec; border: 1px solid #d3e6d8; border-radius: 999px; padding: 3px 12px;
+    font-size: 13px; font-weight: 500; color: var(--pill-ink);
+    background: var(--pill-bg); border: 1px solid var(--pill-line); border-radius: 999px; padding: 3px 12px;
   }
+  .mini-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .mini-row .card { margin-bottom: 0; }
+  .mini-row .card-head h3 { font-size: 18px; }
 
   /* ---------- Skills ---------- */
-  .skills-group { margin-bottom: 20px; }
+  .skills-group { margin: 0 0 26px; }
   .skills-group:last-child { margin-bottom: 0; }
-  .skills-group .label { font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-bottom: 9px; }
+  .skills-group .label { font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin: 0 0 10px; }
   .skills-group .pills { margin-top: 0; }
-  .skills-group .pill { background: #ffffff; border-color: var(--line); color: #39445a; }
 
   /* ---------- Education ---------- */
   .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   .edu-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px 24px; }
   .edu-card h3 { margin-bottom: 4px; }
-  .edu-card .meta { margin: 0; }
+  .edu-card .meta { margin: 0 0 8px; }
+  .coursework { font-size: 14px; color: var(--muted); margin: 0; }
+  .coursework strong { color: var(--ink); font-weight: 600; }
 
-  /* ---------- Contact & footer ---------- */
+  /* ---------- Contact, review notes, footer ---------- */
   .contact-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 24px 26px; }
   .contact-line { margin-bottom: 8px; font-weight: 500; }
   .contact-card p:last-child { margin-bottom: 0; color: var(--muted); }
-  footer { margin-top: 76px; background: transparent; color: var(--faint); border-top: 1px solid var(--line); }
+  .review-notes { background: var(--diagram-bg); border: 1px dashed var(--faint); border-radius: 16px; padding: 22px 26px; }
+  .review-notes h2::after { background: var(--line); }
+  .review-notes ul { margin: 0; padding-left: 20px; }
+  .review-notes li { margin-bottom: 7px; font-size: 15px; }
+  .review-notes li:last-child { margin-bottom: 0; }
+  footer { margin-top: 76px; color: var(--faint); border-top: 1px solid var(--line); }
   .footer-inner { max-width: 820px; margin: 0 auto; padding: 22px 24px; font-size: 14px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
-  footer .fname { font-family: "Fraunces", Georgia, serif; color: var(--ink); font-size: 15.5px; }
+  footer .fname { font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-weight: 600; color: var(--ink); font-size: 15.5px; }
+  footer a { display: inline-flex; align-items: center; min-height: 32px; }
 
+  /* ---------- Case study pages ---------- */
+  .case-head { max-width: 820px; margin: 0 auto; padding: 34px 24px 0; }
+  .case-kicker { color: var(--accent); font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 12px; font-weight: 600; }
+  .case-head h1 { font-size: 36px; }
+  .case-sub { font-size: 17px; opacity: 0.88; max-width: 640px; margin: 0; }
+  .snapshot {
+    margin-top: 26px; background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: 20px 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px 26px;
+  }
+  .snapshot .item .k { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); font-weight: 700; margin: 0 0 4px; }
+  .snapshot .item .v { font-size: 14.5px; margin: 0; line-height: 1.55; }
+  .snapshot .item.wide { grid-column: span 2; }
+
+  /* Architecture chain diagram */
+  .chain { display: flex; align-items: stretch; gap: 0; margin: 6px 0 4px; }
+  .chain .node {
+    flex: 1; background: var(--diagram-bg); border: 1px solid var(--soft-line); border-radius: 12px;
+    padding: 14px 12px; text-align: center;
+  }
+  .chain .node .t { font-weight: 700; font-size: 14.5px; display: block; margin-bottom: 4px; color: var(--accent-ink); }
+  .chain .node .d { font-size: 12.5px; color: var(--muted); line-height: 1.45; display: block; }
+  .chain .arrow { align-self: center; flex: none; width: 26px; text-align: center; color: var(--accent); font-weight: 700; font-size: 17px; }
+  .chain-caption { font-size: 13.5px; color: var(--faint); margin: 8px 0 0; }
+
+  /* Text chain for GOAT */
+  .textchain {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 13.5px;
+    background: var(--code-bg); border-radius: 12px; padding: 16px 18px; line-height: 1.9; overflow-wrap: anywhere;
+  }
+  .textchain .arr { color: var(--accent); font-weight: 700; }
+
+  .deepdive { margin-top: 44px; scroll-margin-top: 20px; }
+  .deepdive h3 { font-size: 22px; margin-bottom: 6px; }
+  .deepdive .dd-tag { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin: 0 0 6px; }
+  .deepdive ul { margin: 8px 0 14px; padding-left: 20px; }
+  .deepdive li { margin-bottom: 7px; }
+  code, .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.92em; background: var(--code-bg); border-radius: 5px; padding: 1px 6px; }
+  .stat-row { display: flex; flex-wrap: wrap; gap: 12px; margin: 14px 0; }
+  .stat {
+    background: var(--soft); border: 1px solid var(--soft-line); border-radius: 12px; padding: 12px 16px; min-width: 130px;
+  }
+  .stat .n { font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 24px; font-weight: 700; letter-spacing: -0.01em; color: var(--accent-ink); display: block; line-height: 1.15; }
+  .stat .l { font-size: 12.5px; color: var(--muted); display: block; margin-top: 2px; line-height: 1.4; }
+
+  .outcomes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 6px; }
+  .outcomes .o { background: var(--soft); border: 1px solid var(--soft-line); border-radius: 12px; padding: 14px 16px; font-size: 14.5px; font-weight: 600; color: var(--accent-ink); line-height: 1.5; }
+  .honesty {
+    margin-top: 26px; border: 1px solid var(--line); border-radius: 16px; padding: 18px 22px;
+    font-size: 14.5px; color: var(--muted); background: var(--card);
+  }
+  .honesty strong { color: var(--ink); }
+
+  /* MiniServe lanes */
+  .lane { border: 1px solid var(--line); border-radius: 16px; padding: 20px 22px; margin-bottom: 18px; background: var(--card); }
+  .lane .lane-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+  .lane .lane-head h3 { font-size: 19px; margin: 0; }
+  .lane .lane-tag { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 11px; border-radius: 999px; }
+  .lane-tag.sim { background: var(--amber-bg); color: var(--amber-ink); }
+  .lane-tag.real { background: var(--soft); color: var(--accent-ink); }
+  .lane .chain .node { background: var(--diagram-bg); }
+  .lane-note {
+    border: 1px solid var(--amber-bg); background: var(--amber-bg); color: var(--ink);
+    border-radius: 12px; padding: 13px 17px; font-size: 14.5px; margin-bottom: 18px;
+  }
+  @media (prefers-color-scheme: dark) { .lane-note { color: var(--amber-ink); } }
+  .result-box {
+    border: 2px solid var(--accent); border-radius: 16px; padding: 22px 24px; background: var(--card);
+  }
+  .result-box h3 { margin-bottom: 10px; }
+  .result-table { width: 100%; border-collapse: collapse; font-size: 15px; margin: 10px 0 14px; }
+  .result-table th, .result-table td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+  .result-table th { font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  .result-table td.num { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+  .backlinks { margin-top: 56px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .shape-list { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 14px; line-height: 2; background: var(--code-bg); border-radius: 12px; padding: 14px 18px; margin: 12px 0; overflow-x: auto; white-space: nowrap; }
+  @media (max-width: 700px) { .shape-list { white-space: normal; overflow-wrap: anywhere; } }
+
+  @media (max-width: 700px) {
+    .proof-grid { grid-template-columns: 1fr 1fr; }
+    .snapshot { grid-template-columns: 1fr 1fr; }
+    .snapshot .item.wide { grid-column: span 2; }
+    .outcomes { grid-template-columns: 1fr; }
+    .chain { flex-direction: column; }
+    .chain .arrow { transform: rotate(90deg); width: auto; padding: 2px 0; }
+    .mini-row { grid-template-columns: 1fr; }
+  }
   @media (max-width: 640px) {
-    .hero-inner { padding-top: 30px; }
-    .hero-flex { flex-direction: column-reverse; gap: 20px; }
+    .hero-inner, .case-head { padding-top: 26px; }
+    .hero-flex { flex-direction: column-reverse; gap: 20px; align-items: flex-start; }
     .avatar-wrap { width: 76px; }
     .avatar { width: 76px; height: 76px; }
-    h1 { font-size: 38px; }
-    .hook { font-size: 16.5px; }
+    h1 { font-size: 36px; }
+    .case-head h1 { font-size: 30px; }
+    .hook, .case-sub { font-size: 16.5px; }
     body { font-size: 16px; }
     .edu-grid { grid-template-columns: 1fr; }
     .card, .contact-card { padding: 20px; }
+    .snapshot { grid-template-columns: 1fr; }
+    .snapshot .item.wide { grid-column: span 1; }
+    .result-table { font-size: 14px; }
   }
 </style>
 </head>
 <body>
 
-  <div class="hero">
-    <div class="hero-inner">
-      <div class="hero-flex">
-        <div>
-          <p class="identity">Backend and Platform Engineer · Former Technical Lead</p>
-          <h1>Jingwen Zhang</h1>
-          <p class="hook">I build systems end to end: embedded firmware, IoT devices, cloud services, and now LLM serving. I like following a problem across the whole chain until it runs.</p>
-          <span class="badge"><span class="dot"></span>Open to Backend, Platform, and AI Infrastructure roles · Jan 2027</span>
-          <p class="socials"><a href="https://github.com/jingwenzz">GitHub</a><span class="sep">·</span><a href="https://www.linkedin.com/in/zhang-jingwen">LinkedIn</a></p>
+
+
+<!-- ================= HOME ================= -->
+<div class="view" id="view-home">
+  <nav class="viewnav" aria-label="Site pages">
+    <a href="#/" data-nav="home" aria-current="page">Home</a>
+    <a href="#/miniserve" data-nav="miniserve">MiniServe</a>
+    <a href="#/ilumens" data-nav="ilumens">iLumens</a>
+  </nav>
+
+  <div class="hero-inner">
+    <div class="hero-flex">
+      <div>
+        <p class="identity">Backend and Platform Engineer · Former Technical Lead</p>
+        <h1>Jingwen Zhang</h1>
+        <p class="hook">I build systems end to end: embedded firmware, IoT devices, cloud services, and now LLM serving. I like following a problem across the whole chain until it runs.</p>
+        <span class="badge"><span class="dot"></span>Open to Backend, Platform, and AI Infrastructure roles · Jan 2027</span>
+        <p class="socials"><a href="https://github.com/jingwenzz">GitHub</a><span class="sep">·</span><a href="https://www.linkedin.com/in/zhang-jingwen">LinkedIn</a></p>
+        <div class="cta-row">
+          <a class="btn primary" href="Jingwen_Zhang_Resume.pdf">View Resume</a>
+          <a class="btn" href="https://github.com/jingwenzz">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/zhang-jingwen">LinkedIn</a>
+          <a class="btn" href="mailto:zhangjingwen0109@gmail.com">Email</a>
         </div>
-        <figure class="avatar-wrap">
-          <img class="avatar" src="pangpang.jpg" alt="Pangpang, my cat">
-          <figcaption class="avatar-caption">Pangpang, chief morale officer</figcaption>
-        </figure>
       </div>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <figure class="avatar-wrap">
+        <img class="avatar" src="pangpang.jpg" alt="Pangpang, my cat">
+        <figcaption class="avatar-caption">Pangpang, chief morale officer</figcaption>
+      </figure>
     </div>
   </div>
 
-<div class="wrap">
+  <nav class="sectionnav" aria-label="Page sections">
+    <a href="#about">About</a>
+    <a href="#work">Selected Work</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-  <section id="about" class="reveal">
-    <h2>About</h2>
-    <p>I am a backend and platform engineer with more than three years of production experience. At iLumens LLC in Salt Lake City, I grew from software engineer to technical lead of an eight person team, building an IoT telemetry platform that runs from device firmware all the way to cloud services on GCP and Kubernetes.</p>
-    <p>My current focus is AI infrastructure and ML systems, especially LLM serving and scheduling, which I explore hands on in my own projects.</p>
-    <p>I am finishing my M.S. in Data Science at UC San Diego and looking for full time Backend, Platform, and AI Infrastructure roles starting January 2027.</p>
-  </section>
+  <div class="proof" aria-label="At a glance">
+    <div class="proof-grid">
+      <div class="proof-item">3+ years in production</div>
+      <div class="proof-item">Led a team of 8</div>
+      <div class="proof-item">Device firmware to GCP and Kubernetes</div>
+      <div class="proof-item">Now focused on LLM serving</div>
+    </div>
+  </div>
 
-  <section id="experience" class="reveal">
-    <h2>Experience</h2>
-    <div class="timeline">
-      <div class="job">
-        <h3>Technical Lead</h3>
-        <p class="meta">iLumens LLC · Salt Lake City, UT · May 2024 to Jun 2025</p>
-        <ul>
-          <li>Led an 8-engineer team building and operating an IoT telemetry platform spanning device firmware, data pipelines, and cloud services.</li>
-          <li>Led integration and modernization of GOAT, a U.S. Department of Energy funded real time training system for power grid operators, coordinating work across the team and with the client.</li>
-          <li>Set technical direction for the platform, reviewed designs, and mentored engineers, including interns.</li>
-        </ul>
-      </div>
-      <div class="job">
-        <h3>Software Engineer</h3>
-        <p class="meta">iLumens LLC · Salt Lake City, UT · Dec 2022 to May 2024</p>
-        <ul>
-          <li>Built backend services and device to cloud data paths for the IoT telemetry platform in Python, Go, C#, and TypeScript, running on GCP, GKE, and Kubernetes.</li>
-          <li>Wrote and debugged production C firmware for connected devices, and traced faults across the firmware, network, and cloud boundary until the full path worked.</li>
-          <li>Led a performance effort on a core user facing workflow that substantially improved its speed, covering both the frontend and the services behind it.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+  <div class="wrap">
 
-  <section id="projects" class="reveal">
-    <h2>Projects</h2>
+    <section class="reveal" id="about">
+      <h2>About</h2>
+      <p>I am a backend and platform engineer with more than three years of production experience. At iLumens LLC in Salt Lake City, I grew from software engineer to technical lead of an eight person team, building an IoT telemetry platform that runs from device firmware all the way to cloud services on GCP and Kubernetes.</p>
+      <p class="focus-line">My current focus is AI infrastructure and ML systems, especially LLM serving and scheduling.</p>
+    </section>
 
-    <div class="card">
-      <div class="card-head">
-        <h3>MiniServe</h3>
-        <a class="gh-link" href="https://github.com/jingwenzz/miniserve">github.com/jingwenzz/miniserve</a>
-      </div>
-      <p class="meta">Personal project</p>
-      <p>A minimal LLM inference serving simulator written in Python. It implements a request scheduler with continuous batching on top of a deterministic simulation core, so scheduling behavior can be reproduced exactly and compared across policies. The project also includes hands on vLLM benchmarking to ground the simulation in real serving behavior.</p>
-      <div class="pills">
-        <span class="pill">Python</span><span class="pill">LLM serving</span><span class="pill">Continuous batching</span><span class="pill">Scheduling</span><span class="pill">vLLM</span>
-      </div>
-    </div>
+    <section id="work">
+      <h2>Selected Work</h2>
 
-    <div class="card">
-      <div class="card-head">
-        <h3>Device Rollout Platform</h3>
-        <span class="tag">In progress</span>
+      <div class="card flagship">
+        <div class="card-head">
+          <h3>MiniServe: an LLM serving runtime</h3>
+          <a class="gh-link" href="https://github.com/jingwenzz/miniserve">github.com/jingwenzz/miniserve</a>
+        </div>
+        <p class="meta">Personal project · Python · Active build</p>
+        <p>A small LLM inference runtime built to understand serving from the scheduler outward: continuous batching under a token budget in a deterministic simulator, with frozen metric definitions and seeded, reproducible experiments, plus a real model correctness harness that hand writes prefill and greedy decode against SmolLM2 and matches the reference output token for token.</p>
+        <div class="pills">
+          <span class="pill">Python</span><span class="pill">LLM serving</span><span class="pill">Continuous batching</span><span class="pill">KV cache</span><span class="pill">Scheduling</span><span class="pill">vLLM benchmarking</span>
+        </div>
+        <a class="case-link" href="#/miniserve">Read the MiniServe case study →</a>
       </div>
-      <p>A device configuration and staged rollout platform, drawn from the operational problems of shipping firmware and configuration to a fleet safely. Design and a device simulator are in place; the platform backend is under construction.</p>
-      <div class="pills">
-        <span class="pill">Fleet configuration</span><span class="pill">Staged rollout</span><span class="pill">Device simulation</span>
-      </div>
-    </div>
 
-    <div class="card">
-      <div class="card-head">
-        <h3>Fleet Operations Assistant</h3>
-        <span class="tag">In progress</span>
+      <div class="card flagship">
+        <div class="card-head">
+          <h3>iLumens: a device to cloud platform</h3>
+          <span class="tag green">Production</span>
+        </div>
+        <p class="meta">iLumens LLC · 2022 to 2025 · Engineer, then Technical Lead</p>
+        <p>Two and a half years building and rescuing a production IoT platform: a fleet migration from Astarte to ThingsBoard that kept the BLE device layer intact, a PostgreSQL connection leak traced through the threading model and eliminated, and a failed production GKE environment rebuilt service by service, plus integration leadership on GOAT, a <strong>U.S. Department of Energy funded</strong> training system for power grid operators.</p>
+        <div class="pills">
+          <span class="pill">Python</span><span class="pill">Django</span><span class="pill">GCP / GKE</span><span class="pill">PostgreSQL</span><span class="pill">ESP32 and Nordic firmware</span><span class="pill">ThingsBoard</span>
+        </div>
+        <a class="case-link" href="#/ilumens">Read the iLumens case study →</a>
       </div>
-      <p>An operations assistant that combines retrieval based question answering, with citations and the ability to decline when evidence is thin, with tool using agents that check device and release status. Currently in design and early build.</p>
-      <div class="pills">
-        <span class="pill">RAG</span><span class="pill">Agents</span><span class="pill">Tool use</span><span class="pill">Evaluation</span>
+
+      <div class="card flagship">
+        <div class="card-head">
+          <h3>GOAT: real time training for power grid operators</h3>
+          <span class="tag green">Production</span>
+        </div>
+        <p class="meta">iLumens LLC · <strong>U.S. Department of Energy funded</strong> · Integration and Technical Lead</p>
+        <p>A real time training system built around the PowerSim family of simulators, 3KeyMaster and WSC. I led its integration and modernization: replacing dummy data with live simulator output, reviving an unmaintained Windows stack, stabilizing the data path into scoring and coaching, and coordinating simulator vendors toward milestone demos.</p>
+        <div class="pills">
+          <span class="pill">C#</span><span class="pill">WPF</span><span class="pill">PowerSim</span><span class="pill">3KeyMaster</span><span class="pill">WSC simulators</span><span class="pill">Integration leadership</span>
+        </div>
+        <a class="case-link" href="#/ilumens/goat">Read the GOAT deep dive →</a>
       </div>
-    </div>
-  </section>
 
-  <section id="skills" class="reveal">
-    <h2>Skills</h2>
-    <div class="skills-group">
-      <p class="label">Languages</p>
-      <div class="pills"><span class="pill">Python</span><span class="pill">Go</span><span class="pill">C#</span><span class="pill">TypeScript</span><span class="pill">SQL</span><span class="pill">C</span><span class="pill">Java</span></div>
-    </div>
-    <div class="skills-group">
-      <p class="label">Backend and Cloud</p>
-      <div class="pills"><span class="pill">REST APIs</span><span class="pill">PostgreSQL</span><span class="pill">GCP</span><span class="pill">GKE</span><span class="pill">Kubernetes</span><span class="pill">Docker</span><span class="pill">CI/CD with GitHub Actions</span></div>
-    </div>
-    <div class="skills-group">
-      <p class="label">Systems</p>
-      <div class="pills"><span class="pill">IoT and edge to cloud pipelines</span><span class="pill">Real time telemetry</span><span class="pill">Embedded firmware (ESP32, nRF)</span></div>
-    </div>
-    <div class="skills-group">
-      <p class="label">ML Systems</p>
-      <div class="pills"><span class="pill">LLM serving and scheduling</span><span class="pill">vLLM</span><span class="pill">Triton kernels</span></div>
-    </div>
-  </section>
-
-  <section id="education" class="reveal">
-    <h2>Education</h2>
-    <div class="edu-grid">
-      <div class="edu-card">
-        <h3>UC San Diego</h3>
-        <p class="meta">M.S. in Data Science · 2025 to 2026</p>
+      <div class="mini-row">
+        <div class="card">
+          <div class="card-head">
+            <h3>Device Rollout Platform</h3>
+            <span class="tag">In progress</span>
+          </div>
+          <p>A device configuration and staged rollout platform, drawn from the operational problems of shipping firmware and configuration to a fleet safely. Design and a device simulator are in place; the platform backend is under construction.</p>
+          <div class="pills">
+            <span class="pill">Fleet configuration</span><span class="pill">Staged rollout</span><span class="pill">Device simulation</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <h3>Fleet Operations Assistant</h3>
+            <span class="tag">In progress</span>
+          </div>
+          <p>An operations assistant that combines retrieval based question answering, with citations and the ability to decline when evidence is thin, with tool using agents that check device and release status. Design is complete; the evaluation set has not run yet, so there are no results to report.</p>
+          <div class="pills">
+            <span class="pill">RAG</span><span class="pill">Agents</span><span class="pill">Tool use</span><span class="pill">Evaluation</span>
+          </div>
+        </div>
       </div>
-      <div class="edu-card">
-        <h3>University of Utah</h3>
-        <p class="meta">B.S. in Computer Science · 2019 to 2022 · GPA 3.77</p>
+    </section>
+
+    <section class="reveal" id="experience">
+      <h2>Experience</h2>
+      <div class="timeline">
+        <div class="job">
+          <h3>Technical Lead</h3>
+          <p class="meta">iLumens LLC · Salt Lake City, UT · May 2024 to Jun 2025</p>
+          <ul>
+            <li>Led an 8 engineer team building and operating an IoT telemetry platform spanning device firmware, data pipelines, and cloud services.</li>
+            <li>Led the production migration from Astarte to ThingsBoard, redesigning device synchronization, telemetry schemas, backend APIs, and frontend data adapters, while preserving the stable BLE device layer so the existing fleet kept working.</li>
+            <li>Rebuilt a failed production GKE environment after usable infrastructure backups turned out to be incomplete, restoring workloads, namespaces, secrets, database connectivity, Keycloak authentication, ingress, and TLS.</li>
+            <li>Led integration and modernization of GOAT, a <strong>U.S. Department of Energy funded</strong> real time training system for power grid operators, translating domain requirements into engineering tasks and coordinating developers and simulator vendors toward milestone demos.</li>
+            <li>Set technical direction for the platform, reviewed designs and code across backend, frontend, and firmware, and mentored engineers, including interns.</li>
+          </ul>
+        </div>
+        <div class="job">
+          <h3>Software Engineer</h3>
+          <p class="meta">iLumens LLC · Salt Lake City, UT · Dec 2022 to May 2024</p>
+          <ul>
+            <li>Diagnosed a production PostgreSQL connection leak that accumulated about 99 database connections with only about 2 active, traced it to threaded Django data sync work that did not release connection lifecycles correctly, and eliminated it by redesigning the concurrency around multiprocessing and a process pool, validated in local, test, and production.</li>
+            <li>Built backend services and device to cloud data paths for the IoT telemetry platform in Python, Go, C#, and TypeScript, running on GCP, GKE, and Kubernetes.</li>
+            <li>Wrote and debugged production C firmware for connected devices, including Nordic BLE advertising and reconnection state machines in weak signal conditions, and traced faults across the firmware, network, and cloud boundary until the full path worked.</li>
+            <li>Cut Smart Room widget load time roughly in half by replacing historical telemetry queries returning 1000+ points with dedicated latest value queries and parallel widget initialization.</li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </section>
+      <p><a href="#/ilumens">The full stories, with architecture and root causes, are in the iLumens case study →</a></p>
+    </section>
 
-  <section id="contact" class="reveal">
-    <h2>Contact</h2>
-    <div class="contact-card">
-      <p class="contact-line">GitHub: <a href="https://github.com/jingwenzz">github.com/jingwenzz</a></p>
-      <p class="contact-line">LinkedIn: <a href="https://www.linkedin.com/in/zhang-jingwen">linkedin.com/in/zhang-jingwen</a></p>
-      <p class="contact-line">Email: <a href="mailto:zhangjingwen0109@gmail.com">zhangjingwen0109@gmail.com</a></p>
-      <p>Based in San Diego, CA, and open to relocation. I am looking for full time Backend, Platform, and AI Infrastructure roles starting January 2027.</p>
-    </div>
-  </section>
+    <section class="reveal" id="skills">
+      <h2>Skills</h2>
+      <div class="skills-group">
+        <p class="label">Languages</p>
+        <div class="pills">
+          <span class="pill">Python</span><span class="pill">Go</span><span class="pill">C#</span><span class="pill">TypeScript</span><span class="pill">SQL</span><span class="pill">C</span><span class="pill">Java</span>
+        </div>
+      </div>
+      <div class="skills-group">
+        <p class="label">Backend and Cloud</p>
+        <div class="pills">
+          <span class="pill">REST APIs</span><span class="pill">PostgreSQL</span><span class="pill">GCP</span><span class="pill">GKE</span><span class="pill">Kubernetes</span><span class="pill">Docker</span><span class="pill">CI/CD with GitHub Actions</span>
+        </div>
+      </div>
+      <div class="skills-group">
+        <p class="label">Systems</p>
+        <div class="pills">
+          <span class="pill">IoT and edge to cloud pipelines</span><span class="pill">Real time telemetry</span><span class="pill">Embedded firmware (ESP32, nRF)</span>
+        </div>
+      </div>
+      <div class="skills-group">
+        <p class="label">ML Systems</p>
+        <div class="pills">
+          <span class="pill">LLM serving and scheduling</span><span class="pill">vLLM</span><span class="pill">Triton kernels</span>
+        </div>
+      </div>
+    </section>
 
-</div>
+    <section class="reveal" id="education">
+      <h2>Education</h2>
+      <div class="edu-grid">
+        <div class="edu-card">
+          <h3>UC San Diego</h3>
+          <p class="meta">M.S. in Data Science · 2025 to 2026</p>
+          <p class="coursework"><strong>Relevant coursework:</strong> Systems for LLMs and AI Agents, Machine Learning Systems, Deep Learning Systems, Scalable Database Systems.</p>
+        </div>
+        <div class="edu-card">
+          <h3>University of Utah</h3>
+          <p class="meta">B.S. in Computer Science · 2019 to 2022 · GPA 3.77</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal" id="contact">
+      <h2>Contact</h2>
+      <div class="contact-card">
+        <p class="contact-line">Resume: <a href="Jingwen_Zhang_Resume.pdf">Jingwen Zhang, Resume (PDF)</a></p>
+        <p class="contact-line">GitHub: <a href="https://github.com/jingwenzz">github.com/jingwenzz</a></p>
+        <p class="contact-line">LinkedIn: <a href="https://www.linkedin.com/in/zhang-jingwen">linkedin.com/in/zhang-jingwen</a></p>
+        <p class="contact-line">Email: <a href="mailto:zhangjingwen0109@gmail.com">zhangjingwen0109@gmail.com</a></p>
+        <p>Based in San Diego, CA, and open to relocation. I am looking for full time Backend, Platform, and AI Infrastructure roles starting January 2027.</p>
+      </div>
+    </section>
+
+    
+
+  </div>
 
   <footer>
     <div class="footer-inner">
       <span class="fname">Jingwen Zhang</span>
-      <span>San Diego, CA</span>
+      <span><a href="#/ilumens">iLumens case study</a> · <a href="#/miniserve">MiniServe case study</a> · San Diego, CA</span>
     </div>
   </footer>
+</div>
+
+<!-- ================= ILUMENS CASE STUDY ================= -->
+<div class="view" id="view-ilumens">
+  <nav class="viewnav" aria-label="Site pages">
+    <a href="#/" data-nav="home">Home</a>
+    <a href="#/miniserve" data-nav="miniserve">MiniServe</a>
+    <a href="#/ilumens" data-nav="ilumens" aria-current="page">iLumens</a>
+  </nav>
+
+  <div class="case-head">
+    <p class="case-kicker">Case study · Production platform</p>
+    <h1>iLumens: building and rescuing a device to cloud platform</h1>
+    <p class="case-sub">An IoT telemetry platform that runs from sensor firmware in the ceiling to dashboards in the browser. I joined as a software engineer, left as technical lead, and along the way migrated its cloud platform, killed a database connection leak, and rebuilt its production Kubernetes environment after a failure.</p>
+    <div class="snapshot">
+      <div class="item">
+        <p class="k">Company</p>
+        <p class="v">iLumens LLC, Salt Lake City, UT</p>
+      </div>
+      <div class="item">
+        <p class="k">Roles</p>
+        <p class="v">Software Engineer, Dec 2022 to May 2024<br>Technical Lead, May 2024 to Jun 2025</p>
+      </div>
+      <div class="item">
+        <p class="k">Team</p>
+        <p class="v">Grew into leading an 8 engineer team across firmware, backend, frontend, and cloud</p>
+      </div>
+      <div class="item wide">
+        <p class="k">Stack</p>
+        <p class="v">Python, Go, C#, TypeScript · Django · GCP, GKE, Kubernetes · PostgreSQL and Cloud SQL · Keycloak · Astarte, then ThingsBoard · ESP32 and Nordic nRF firmware · React</p>
+      </div>
+      <div class="item">
+        <p class="k">Scope</p>
+        <p class="v">Firmware, backend, cloud infrastructure, and frontend, owned as one chain</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <section class="reveal">
+      <h2>The platform</h2>
+      <p>Sensors and controllers in commercial buildings report occupancy, environmental, and device data. That data has to travel from constrained embedded hardware, over BLE and gateway hardware, into cloud services, and out to the Smart Room dashboards that facility teams actually use. Every layer in that chain was part of my job at some point.</p>
+      <div class="chain" role="img" aria-label="Architecture chain: connected devices and firmware, then BLE and gateway path, then ingestion and telemetry services, then Django services and PostgreSQL, then Smart Room dashboard and operator workflows">
+        <div class="node"><span class="t">Devices and firmware</span><span class="d">Motion and environmental sensors, ESP32 and Nordic nRF, C firmware</span></div>
+        <div class="arrow" aria-hidden="true">→</div>
+        <div class="node"><span class="t">BLE and gateway</span><span class="d">BLE links to wall controllers and ESP32 gateways</span></div>
+        <div class="arrow" aria-hidden="true">→</div>
+        <div class="node"><span class="t">Ingestion and telemetry</span><span class="d">Astarte, later ThingsBoard: device model, telemetry, provisioning</span></div>
+        <div class="arrow" aria-hidden="true">→</div>
+        <div class="node"><span class="t">Django and PostgreSQL</span><span class="d">APIs, synchronization, access control, Cloud SQL</span></div>
+        <div class="arrow" aria-hidden="true">→</div>
+        <div class="node"><span class="t">Smart Room dashboard</span><span class="d">React dashboards, widgets, and operator workflows</span></div>
+      </div>
+      <p class="chain-caption">The same chain, five times over: most of the hard problems below happened at the seams between these boxes, not inside any one of them.</p>
+    </section>
+
+    <section class="reveal">
+      <h2>My role</h2>
+      <p>I started in December 2022 as a software engineer writing backend services and debugging device firmware. The work kept widening: first the data path between devices and cloud, then production incidents on GCP, then design and review responsibility, and in May 2024 I became technical lead of the eight person team.</p>
+      <p>The through line is that I owned problems across firmware, backend, cloud, and frontend rather than one layer. When a sensor reading was wrong on a dashboard, the fault could sit in a BLE state machine, a gateway packet, a sync job, a serializer, or a React widget, and my job was to follow it across those boundaries until the whole path worked. The five stories below are the ones that best show that.</p>
+    </section>
+
+    <section class="reveal">
+      <h2>Deep dives</h2>
+
+      <div class="deepdive">
+        <p class="dd-tag">Deep dive 1 · Platform migration</p>
+        <h3>Migration without breaking the fleet</h3>
+        <p>The platform ran on Astarte, and we moved production to ThingsBoard. The constraint that shaped everything: the installed device fleet and its BLE layer were stable and working, and a migration that broke them would have been a field problem, not a software problem.</p>
+        <ul>
+          <li><strong>Phased strategy.</strong> We evaluated several approaches and chose the one that preserved the stable BLE device layer while replacing only the ESP32 to cloud gateway path, which kept the blast radius small.</li>
+          <li><strong>Sync rewrite.</strong> I rewrote device synchronization around the ThingsBoard device model, removing Astarte specific interface and endpoint abstractions, with device discovery, connectivity refresh, and stale device cleanup.</li>
+          <li><strong>Normalization layer.</strong> I built telemetry normalization between ThingsBoard payloads and the application models, so frontend components were decoupled from platform specific response formats instead of breaking with each payload change.</li>
+          <li><strong>User data protection.</strong> Automated sync had been able to overwrite user managed aliases and metadata. I replaced broad upserts with conditional update logic so synchronization updates device state without clobbering what operators had named and configured.</li>
+          <li><strong>Ingestion resilience.</strong> I added retries with exponential backoff (1s, 2s, 4s, 8s, 16s, up to 5 attempts) and structured failure logging for transient telemetry ingestion errors, and verified with simulated intermittent network failures that payloads were recovered instead of dropped.</li>
+        </ul>
+        <p>We also stress tested the migrated pipeline with malformed payloads, delayed responses, and interrupted transmissions, adding backend validation and frontend fallback states so partial or stale data did not reach users as if it were live.</p>
+      </div>
+
+      <div class="deepdive">
+        <p class="dd-tag">Deep dive 2 · Backend debugging</p>
+        <h3>The PostgreSQL connection leak</h3>
+        <div class="stat-row">
+          <div class="stat"><span class="n">~99</span><span class="l">database connections open in production</span></div>
+          <div class="stat"><span class="n">~2</span><span class="l">of them actually active</span></div>
+          <div class="stat"><span class="n">0</span><span class="l">persistent idle connections after the fix</span></div>
+        </div>
+        <p>Production PostgreSQL was accumulating connections: about 99 open, with only about 2 active and the rest idle. The problem did not reproduce locally, which made it a production only investigation across cloud logs, PostgreSQL activity views, and the backend code.</p>
+        <p>The root cause sat in the data synchronization workers. The sync code made heavy use of Python threads doing Django ORM work, and when those threads finished, their database connection lifecycles were not released correctly, so idle connections accumulated until they became the problem.</p>
+        <p>The fix was an architecture change, not a settings tweak: I redesigned the synchronization concurrency around multiprocessing and a process pool, so connection ownership followed process boundaries that actually close. I validated the change in local, then test, then production. In production, the leak was gone.</p>
+      </div>
+
+      <div class="deepdive">
+        <p class="dd-tag">Deep dive 3 · Platform recovery</p>
+        <h3>Rebuilding production on GKE</h3>
+        <p>In December 2024 the Astarte deployment began going offline at random. I worked through the cluster methodically: GKE CPU, memory, and storage, pod and node networking, DNS, ingress, liveness and readiness probes, autoscaling events, load balancer health checks, and GCP status. The infrastructure looked healthy while the platform kept degrading, until pods failed, operator and custom resource state fell out of sync, and the cluster went down.</p>
+        <p>The recovery turned out to be the real project. The backups were incomplete: there was no full usable snapshot to restore from. So in January 2025 I rebuilt the production environment by hand, across roughly 7 namespaces and 30 pods:</p>
+        <ul>
+          <li>GKE cluster, namespaces, and workload deployments for the Django backend, Astarte, and Scylla.</li>
+          <li>Secrets reconstructed one by one, including the Astarte realm private key, database credentials, the Django secret, Keycloak settings, and GCP service account credentials, then rebound to service accounts.</li>
+          <li>Keycloak authentication rebuilt: realm, OAuth redirects, roles and groups, userinfo mappings, CORS and Web Origins, and session flows.</li>
+          <li>Ingress and TLS recovered by debugging cert manager HTTP-01 challenges, solver pods, DNS records, ClusterIssuers, and TLS secrets.</li>
+          <li>Node pools resized when the rebuilt workloads would not schedule within the existing CPU and memory.</li>
+        </ul>
+        <p>One nested problem is worth naming on its own: the test backend could not reach its database because the GKE cluster and Cloud SQL sat in different VPCs. I evaluated VPC peering, found a subnet CIDR conflict, compared peering, Shared VPC, and a cluster rebuild, and chose the network restructuring that actually resolved it.</p>
+        <p>After the rebuild, I also migrated workloads to a smaller node pool, cordoning and draining the old nodes and retiring the pool, to bring the cluster cost back in line with what the workloads actually used.</p>
+      </div>
+
+      <div class="deepdive" id="goat">
+        <p class="dd-tag">Deep dive 4 · GOAT · Integration leadership</p>
+        <h3>GOAT: integrating a real time training system</h3>
+        <p>GOAT is a <strong>U.S. Department of Energy funded</strong> real time training system for power grid operators, built around the PowerSim family of simulators (3KeyMaster and WSC). To be explicit about the boundary: my part was integration, modernization, and technical leadership of the team building it, not sole authorship of the whole system.</p>
+        <div class="textchain" aria-label="GOAT data chain">PowerSim and WSC via 3KeyMaster <span class="arr">→</span> simulator state, actions, and recorded events <span class="arr">→</span> scoring and coaching <span class="arr">→</span> WPF application and database</div>
+        <ul>
+          <li><strong>Real data, not dummy data.</strong> From early 2023, my brief was to replace the placeholder data inside the scoring system with real simulator output: activity logs, simulation state, and recorded actions.</li>
+          <li><strong>Legacy takeover.</strong> The codebase had gone unmaintained and was barely documented. I got the full Windows stack building and running again: the WPF application, its database, 3KeyMaster, and the custom bridge DLLs connecting them, including fixing DLL errors and rebuilding the database when the original would not come up.</li>
+          <li><strong>Data pipeline.</strong> I reviewed and stabilized the simulator data retrieval path: callback handling, queued event processing in C#, state and action synchronization, and database persistence feeding the scoring system.</li>
+          <li><strong>Requirements to backlog.</strong> I translated the domain experts' requirements for scoring, coaching, and communication modules into GitHub project boards, epics, issues, and programmer assignments, and ran the review loop over the team's code.</li>
+          <li><strong>Compatibility and demos.</strong> I validated GOAT against newly released WSC versions before milestone demos, coordinated the external simulator teams, and helped define the follow on architecture: GOAT stays a Windows application, with a separate web based CMS for instructor scenario authoring.</li>
+        </ul>
+      </div>
+
+      <div class="deepdive">
+        <p class="dd-tag">Deep dive 5 · Performance</p>
+        <h3>Smart Room performance, at the widget level</h3>
+        <div class="stat-row">
+          <div class="stat"><span class="n">1000+</span><span class="l">historical points fetched to show one current value</span></div>
+          <div class="stat"><span class="n">~2x</span><span class="l">faster widget loading after the fix</span></div>
+          <div class="stat"><span class="n">~5s</span><span class="l">for pilot Smart Room widgets to load</span></div>
+        </div>
+        <p>The Smart Room dashboard felt slow, and the cause was a data shape problem, not rendering. Each widget only needed the latest value for its sensor, but widgets were reusing the plot's historical data fetch, pulling 1000+ points to display a single current number.</p>
+        <p>I wrote a dedicated latest value fetch for widgets, then fixed a second bug underneath it: the API was returning the first point in the requested time range instead of the newest one, so I rewrote the request parameters and added timestamp validity checks. Finally I changed widget initialization from sequential to parallel, with each widget updating as soon as its own status was ready. Widget load time fell by roughly half, and pilot Smart Room widgets loaded in about five seconds.</p>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <h2>Outcomes</h2>
+      <div class="outcomes">
+        <div class="o">Production migrated from Astarte to ThingsBoard with the BLE fleet layer untouched</div>
+        <div class="o">PostgreSQL connection leak found, root caused, and eliminated in production</div>
+        <div class="o">Failed production GKE environment rebuilt by hand and returned to service</div>
+        <div class="o">GOAT integration led from dummy data to live simulator driven scoring and demos</div>
+        <div class="o">Smart Room widget loading cut roughly in half</div>
+        <div class="o">Promoted to technical lead of an 8 engineer team</div>
+      </div>
+      <div class="honesty">
+        <strong>A note on scope.</strong> This page describes production work at architecture level. Employer confidential internals, customer details, credentials, and internal data are intentionally omitted, and the numbers given are the ones I can stand behind: connection counts observed in production, the retry schedule as implemented, and load times as measured at the time.
+      </div>
+      <div class="backlinks">
+        <a class="btn" href="#/">← Back home</a>
+        <a class="btn" href="#/miniserve">Next: the MiniServe case study →</a>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="fname">Jingwen Zhang</span>
+      <span><a href="#/">Home</a> · <a href="#/miniserve">MiniServe case study</a> · San Diego, CA</span>
+    </div>
+  </footer>
+</div>
+
+<!-- ================= MINISERVE CASE STUDY ================= -->
+<div class="view" id="view-miniserve">
+  <nav class="viewnav" aria-label="Site pages">
+    <a href="#/" data-nav="home">Home</a>
+    <a href="#/miniserve" data-nav="miniserve" aria-current="page">MiniServe</a>
+    <a href="#/ilumens" data-nav="ilumens">iLumens</a>
+  </nav>
+
+  <div class="case-head">
+    <p class="case-kicker">Case study · Personal project</p>
+    <h1>MiniServe: learning LLM serving from the scheduler outward</h1>
+    <p class="case-sub">A small LLM inference runtime I am building by hand. Most of it is a deterministic simulator where scheduling behavior can be reproduced exactly; next to it sits a real model correctness harness that runs actual prefill and decode against SmolLM2. This page keeps the two strictly separated, and labels every number as simulation or measured.</p>
+    <div class="snapshot">
+      <div class="item">
+        <p class="k">Project</p>
+        <p class="v">MiniServe, personal project, active build</p>
+      </div>
+      <div class="item">
+        <p class="k">Code</p>
+        <p class="v"><a href="https://github.com/jingwenzz/miniserve">github.com/jingwenzz/miniserve</a></p>
+      </div>
+      <div class="item">
+        <p class="k">Language</p>
+        <p class="v">Python, with PyTorch for the real model harness</p>
+      </div>
+      <div class="item wide">
+        <p class="k">Status</p>
+        <p class="v">Scheduler and simulator complete with 95 passing tests; real model prefill and decode verified standalone; batched decode is the next step</p>
+      </div>
+      <div class="item">
+        <p class="k">Real model used</p>
+        <p class="v">HuggingFaceTB/SmolLM2-135M</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <section class="reveal">
+      <h2>Why build this</h2>
+      <p>I wanted to understand modern inference servers from the inside: how requests are admitted, how a scheduler decides what runs in each step, why prefill and decode have different costs, and where the time to first token actually comes from. Calling a serving framework would not teach me that, so I am building the scheduling core myself and only then connecting it to a real model.</p>
+      <p>The project deliberately separates two things that are easy to blur: a simulator, which is fast and deterministic and therefore good for studying scheduling policy, and real model execution, which is where correctness has to be proven against a reference. Conflating them produces impressive and meaningless numbers, so MiniServe keeps them in separate lanes.</p>
+    </section>
+
+    <section class="reveal">
+      <h2>Two lanes, kept separate</h2>
+
+      <div class="lane">
+        <div class="lane-head">
+          <h3>Lane A: deterministic simulation</h3>
+          <span class="lane-tag sim">Simulation</span>
+        </div>
+        <div class="chain" role="img" aria-label="Lane A chain: seeded workload, admission checks, FCFS continuous batching scheduler, simulated executor, metrics and experiment summaries">
+          <div class="node"><span class="t">Seeded workload</span><span class="d">Fixed request sets generated from a seed</span></div>
+          <div class="arrow" aria-hidden="true">→</div>
+          <div class="node"><span class="t">Admission checks</span><span class="d">Oversized prompts and duplicate IDs rejected up front</span></div>
+          <div class="arrow" aria-hidden="true">→</div>
+          <div class="node"><span class="t">Scheduler</span><span class="d">FCFS continuous batching under size and token budget limits</span></div>
+          <div class="arrow" aria-hidden="true">→</div>
+          <div class="node"><span class="t">Simulated executor</span><span class="d">Logical cost model for prefill and decode</span></div>
+          <div class="arrow" aria-hidden="true">→</div>
+          <div class="node"><span class="t">Metrics</span><span class="d">Per request timelines, recomputed into summaries</span></div>
+        </div>
+      </div>
+
+      <div class="lane">
+        <div class="lane-head">
+          <h3>Lane B: real model correctness harness</h3>
+          <span class="lane-tag real">Measured</span>
+        </div>
+        <div class="chain" role="img" aria-label="Lane B chain: prompt, prefill, KV cache, hand written greedy decode loop, comparison against reference generation">
+          <div class="node"><span class="t">Prompt</span><span class="d">Tokenized input to SmolLM2-135M</span></div>
+          <div class="arrow" aria-hidden="true">→</div>
+          <div class="node"><span class="t">Prefill</span><span class="d">One parallel forward over the whole prompt</span></div>
+          <div class="arrow" aria-hidden="true">→</div>
+          <div class="node"><span class="t">KV cache</span><span class="d">Per layer keys and values, growing by one position per step</span></div>
+          <div class="arrow" aria-hidden="true">→</div>
+          <div class="node"><span class="t">Greedy decode loop</span><span class="d">Hand written, one new token per forward</span></div>
+          <div class="arrow" aria-hidden="true">→</div>
+          <div class="node"><span class="t">Reference check</span><span class="d">Token by token comparison with reference generation</span></div>
+        </div>
+      </div>
+
+      <div class="lane-note"><strong>Read this before the numbers:</strong> Lane B is a correctness bridge. It proves I can run and verify real prefill and decode, but it is <strong>not yet integrated as the engine backend</strong>. The scheduler results below come from Lane A simulation only, and nothing on this page presents them as GPU measurements.</div>
+    </section>
+
+    <section class="reveal">
+      <h2>Scheduler design</h2>
+      <ul>
+        <li><strong>Continuous batching with two limits.</strong> Each scheduling step admits and advances requests under both a batch size limit and a per step token budget, with decode work prioritized so in flight generations keep moving. There is a distinction the design keeps explicit: the per step token budget is a limit on logical work per round, and resident KV cache capacity is a separate limit; one variable cannot stand in for both.</li>
+        <li><strong>Admission validation.</strong> A request whose prompt can never fit inside a single step's budget would wait forever under naive FCFS, so admission rejects oversized prompts before they enter the queue. Duplicate active request IDs are also rejected at the door.</li>
+        <li><strong>Cancellation.</strong> Requests can be cancelled while waiting or while running. A cancelled request produces no further tokens, its slot and cache bookkeeping are cleaned up, and other requests are unaffected. Cancelling twice, or cancelling a finished request, is a safe no op.</li>
+        <li><strong>A fair baseline.</strong> A serial scheduler that runs one request at a time shares the same engine, request types, executor, and stopping rules, so switching between serial and continuous isolates the scheduling policy as the only difference.</li>
+        <li><strong>Executor boundary.</strong> The engine talks to an executor through a small protocol (prefill, decode, release), which is what will let the real model backend replace the simulated one without rewriting the scheduler.</li>
+      </ul>
+    </section>
+
+    <section class="reveal">
+      <h2>Measurement discipline</h2>
+      <p>Serving numbers are easy to produce and hard to trust, so the measurement rules were fixed before the experiments:</p>
+      <ul>
+        <li><strong>Frozen definitions.</strong> TTFT is the time from engine receipt to the first output token being available, not to prefill finishing. End to end latency runs from receipt to the completion event. TPOT is (last token time minus first token time) divided by (N minus 1) for requests with at least two tokens, and is reported as not applicable for single token requests rather than divided by zero.</li>
+        <li><strong>Seeded workloads.</strong> Workload generators take a fixed seed covering prompt lengths, output limits, and arrival times, so a run can be regenerated exactly and two schedulers can be fed identical request sets.</li>
+        <li><strong>Independent recomputation.</strong> Summaries are recomputed from the raw per request timelines by a separate step, and are only trusted when the recomputation matches.</li>
+        <li><strong>Honest labels.</strong> Every result is labeled simulation or measured. The simulator's logical clock is never reported as model throughput.</li>
+      </ul>
+    </section>
+
+    <section class="reveal">
+      <div class="result-box">
+        <p class="dd-tag" style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 6px;">Simulation result · seed 1234 workload</p>
+        <h3>A result that cuts both ways</h3>
+        <table class="result-table">
+          <thead>
+            <tr><th>Metric (logical units)</th><th>Serial baseline</th><th>Continuous batching</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Scheduler steps to finish</td><td class="num">36</td><td class="num">12</td></tr>
+            <tr><td>Total logical time</td><td class="num">21.3 s</td><td class="num">21.3 s</td></tr>
+            <tr><td>Average TTFT</td><td class="num">10.32 s</td><td class="num">9.22 s</td></tr>
+            <tr><td>Average end to end latency</td><td class="num">12.32 s</td><td class="num">15.82 s</td></tr>
+          </tbody>
+        </table>
+        <p>Continuous batching finished the same workload in a third of the scheduler steps and got first tokens out sooner on average, yet each individual request took longer to complete, and the total logical time did not fall at all.</p>
+        <p>That last part is the cost model talking: the simulator charges prefill and decode work serially, so batching rearranges when work happens without making the total cheaper. The honest reading of this result is that batching trades individual completion time for system level responsiveness, and that a real throughput claim has to wait for the real executor, where one batched forward genuinely does the work of several steps at once.</p>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <h2>The real model bridge</h2>
+      <p>Lane B runs a real model: <span class="mono">HuggingFaceTB/SmolLM2-135M</span>, 30 layers, 3 KV heads, vocabulary 49,152. Two pieces are verified so far.</p>
+      <p><strong>Prefill, isolated.</strong> A standalone run tokenizes a short prompt and executes prefill on its own, recording the shapes that everything else depends on:</p>
+      <div class="shape-list">input_ids [1, 5] · logits [1, 5, 49152] · per layer K [1, 3, 5, 64] · per layer V [1, 3, 5, 64]</div>
+      <p><strong>Greedy decode, hand written.</strong> A manual decode loop then feeds one token at a time against the cache: 16 forwards in total (1 prefill plus 15 decode steps), every decode input shaped <span class="mono">[1, 1]</span>, with the cache growing from length 5 to length 20 exactly one position per step. All 16 generated tokens matched the reference output exactly. Doing this by hand is what made the prefill and decode split concrete: prefill processes the whole prompt in parallel and fills the cache, decode rolls forward one token at a time on top of it, which is precisely why serving systems report TTFT and TPOT as separate metrics.</p>
+      <div class="stat-row">
+        <div class="stat"><span class="n">95</span><span class="l">tests currently passing across the project</span></div>
+        <div class="stat"><span class="n">16 / 16</span><span class="l">generated tokens matching the reference output</span></div>
+        <div class="stat"><span class="n">5 → 20</span><span class="l">KV cache length across the decode run</span></div>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <h2>Related work: vLLM benchmarking</h2>
+      <div class="honesty">
+        <strong>Kept separate on purpose.</strong> Alongside MiniServe, I have done hands on vLLM benchmarking on an A100. That work grounds the project in real serving behavior, and it is where my TTFT, TPOT, and KV cache measurement habits come from. It is a separate activity from MiniServe: no vLLM number is presented anywhere as output of the MiniServe simulator, and the serial baseline above exists precisely because outperforming a toy baseline would prove nothing about mature serving systems.
+      </div>
+      <p style="margin-top:22px;"><strong>Next steps:</strong> multi prompt correctness checks for the real model harness, then batched decode, connecting Lane B to the scheduler as a real executor.</p>
+      <div class="backlinks">
+        <a class="btn" href="#/">← Back home</a>
+        <a class="btn" href="#/ilumens">Previous: the iLumens case study →</a>
+        <a class="btn" href="https://github.com/jingwenzz/miniserve">MiniServe on GitHub →</a>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="fname">Jingwen Zhang</span>
+      <span><a href="#/">Home</a> · <a href="#/ilumens">iLumens case study</a> · San Diego, CA</span>
+    </div>
+  </footer>
+</div>
 
 <script>
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  (function () {
+    var routes = { "": "home", "/": "home", "/ilumens": "ilumens", "/miniserve": "miniserve", "/ilumens/goat": "ilumens" };
+    function current() {
+      var h = window.location.hash.replace(/^#/, "");
+      return routes.hasOwnProperty(h) ? routes[h] : "home";
+    }
+    function currentAnchor() {
+      var h = window.location.hash.replace(/^#/, "");
+      return h === "/ilumens/goat" ? "goat" : null;
+    }
+    function render() {
+      var name = current();
+      var anchor = currentAnchor();
+      ["home", "ilumens", "miniserve"].forEach(function (n) {
+        document.getElementById("view-" + n).classList.toggle("active", n === name);
+      });
+      document.querySelectorAll("[data-nav]").forEach(function (a) {
+        if (a.getAttribute("data-nav") === name) { a.setAttribute("aria-current", "page"); }
+        else { a.removeAttribute("aria-current"); }
+      });
+      if (anchor) {
+        var target = document.getElementById(anchor);
+        if (target) { target.scrollIntoView(); return; }
+      }
+      window.scrollTo(0, 0);
+    }
+    // Section anchors on the homepage (About, Experience, ...) should not be
+    // treated as routes: only hash values starting with "#/" switch views.
+    window.addEventListener("hashchange", function () {
+      if (window.location.hash.indexOf("#/") === 0 || window.location.hash === "") { render(); }
+    });
+    // Scroll reveal, matching the live site: sections fade in once visible.
+    if ("IntersectionObserver" in window) {
+      var revealIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add("in"); revealIO.unobserve(e.target); }
+        });
+      }, { threshold: 0.08, rootMargin: "0px 0px 30% 0px" });
+      document.querySelectorAll(".reveal").forEach(function (el) { revealIO.observe(el); });
+    } else {
+      document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
+    }
+    render();
+  })();
 </script>
 </body>
 </html>
